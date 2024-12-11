@@ -51,7 +51,7 @@ def nexulien_heartbeat():
             users = c.fetchall()
             now = time.time()
             for user in users:
-                if now - user['timestamp'] > 86400:
+                if now - user['timestamp'] > 604800:
                     c.execute('DELETE FROM users WHERE user = ?',
                               (user['user'],))
 
