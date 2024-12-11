@@ -1,0 +1,64 @@
+html {
+    background: url(img/background.png) no-repeat center center;
+    background-size: cover;
+    background-color: #666745;
+    background-attachment: fixed;
+    will-change: transform;
+    color: #eee;
+}
+
+body {
+    width: 512px;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 128px;
+    padding-bottom: 128px;
+    font-family: sans-serif;
+}
+
+div {
+    margin: 0px;
+}
+#img>img {
+    width: 100%;
+    vertical-align: top;
+    user-select: none;
+}
+#md {
+    background-color: #7F3126;
+    padding: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+div#multi {
+    display: flex;
+    flex-direction: column;
+}
+
+/* all markdown shenanigans */
+h1,h2,h3,h4,h5,h6 {
+    padding: 0px;
+    margin: 0px;
+}
+code {
+    background-color: #333;
+    margin: -2px;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #ddd;
+}
+
+a {
+    color: #0094ff;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basement of Chaos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="marked.min.js"></script>
+    <script src="lib.js"></script>
+    <script>
+        async function main() {
+            const layout = await getJson("layout.json");
+            for (const block of layout) {
+                document.body.innerHTML += await parseBlock(block);
+            }
+        }
+        main();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
