@@ -1,8 +1,11 @@
 import sqlite3
 import time
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 def get_db_connection():
@@ -21,16 +24,19 @@ create_table()
 
 
 @app.route('/')
+@cross_origin()
 def index():
     return jsonify({'message': 'you silly goober, you need to supply an actual route'}), 400
 
 
 @app.route('/nexulien/heartbeat', methods=['OPTIONS'])
+@cross_origin()
 def nexulien_heartbeat_options():
     return jsonify({}), 200
 
 
 @app.route('/nexulien/heartbeat', methods=['POST'])
+@cross_origin()
 def nexulien_heartbeat():
     content = request.get_data(as_text=True).strip()
     try:
@@ -63,6 +69,7 @@ def nexulien_heartbeat():
 
 
 @app.route('/nexulien/users', methods=['GET'])
+@cross_origin()
 def nexulien_users():
     get_timestamps = request.args.get('timestamps') == 'true'
     try:
