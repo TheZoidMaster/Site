@@ -25,7 +25,7 @@ def index():
     return jsonify({'message': 'you silly goober, you need to supply an actual route'}), 400
 
 
-@app.route('/nexulien/heartbeat', methods=['OPTIONS', 'POST'])
+@app.route('/nexulien/heartbeat', methods=['OPTIONS'])
 def nexulien_heartbeat_options():
     return jsonify({}), 200
 
@@ -58,11 +58,6 @@ def nexulien_heartbeat():
         return str(e), 500
 
     return "success", 200
-
-
-@app.route('/nexulien/users', methods=['OPTIONS', 'GET'])
-def nexulien_users_options():
-    return jsonify({}), 200
 
 
 @app.route('/nexulien/users', methods=['GET'])
