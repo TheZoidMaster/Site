@@ -14,7 +14,7 @@ def get_db_connection():
 def create_table():
     with get_db_connection() as conn:
         conn.execute(
-            'CREATE TABLE IF NOT EXISTS users (user TEXT PRIMARY KEY, timestamp REAL)')
+            'CREATE TABLE IF NOT EXISTS users (user TEXT PRIMARY KEY, name TEXT, timestamp REAL)')
 
 
 create_table()
@@ -32,9 +32,10 @@ def nexulien_heartbeat_options():
 
 @app.route('/nexulien/heartbeat', methods=['POST'])
 def nexulien_heartbeat():
-    user_id = request.get_data(as_text=True).strip()
-    if not user_id:
-        return "you silly goober, you need to supply a user-id", 400
+    content = request.get_data(as_text=True).strip()
+    user_id, user_name = content.split(',')
+    if not user_id or not user_name:
+        return "you silly goober, you need to supply user data", 400
 
     try:
         with get_db_connection() as conn:
@@ -52,8 +53,8 @@ def nexulien_heartbeat():
                 c.execute('UPDATE users SET timestamp = ? WHERE user = ?',
                           (time.time(), user_id))
             else:
-                c.execute('INSERT INTO users VALUES (?, ?)',
-                          (user_id, time.time()))
+                c.execute('INSERT INTO users VALUES (?, ?, ?)',
+                          (user_id, user_name, time.time()))
     except sqlite3.Error as e:
         return str(e), 500
 
@@ -69,9 +70,9 @@ def nexulien_users():
             c.execute('SELECT * FROM users')
             users = c.fetchall()
             if get_timestamps:
-                return jsonify({'users': [{'user': user['user'], 'last_seen': user['timestamp']} for user in users]}), 200
+                return jsonify({'users': [{'user': user['user'], 'name': user['name'], 'last_seen': user['timestamp']} for user in users]}), 200
             else:
-                return jsonify({'users': [user['user'] for user in users]}), 200
+                return jsonify({'users': [{'user': user['user'], 'name': user['name']} for user in users]}), 200
     except sqlite3.Error as e:
         pass
 
