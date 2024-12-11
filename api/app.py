@@ -33,8 +33,9 @@ def nexulien_heartbeat_options():
 @app.route('/nexulien/heartbeat', methods=['POST'])
 def nexulien_heartbeat():
     content = request.get_data(as_text=True).strip()
-    user_id, user_name = content.split(',')
-    if not user_id or not user_name:
+    try:
+        user_id, user_name = content.split(',')
+    except:
         return "you silly goober, you need to supply user data", 400
 
     try:
@@ -50,8 +51,8 @@ def nexulien_heartbeat():
 
             c.execute('SELECT * FROM users WHERE user = ?', (user_id,))
             if c.fetchone():
-                c.execute('UPDATE users SET timestamp = ? WHERE user = ?',
-                          (time.time(), user_id))
+                c.execute('UPDATE users SET timestamp = ?, name = ? WHERE user = ?',
+                          (time.time(), user_name, user_id))
             else:
                 c.execute('INSERT INTO users VALUES (?, ?, ?)',
                           (user_id, user_name, time.time()))
