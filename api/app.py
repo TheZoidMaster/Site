@@ -71,16 +71,12 @@ def nexulien_heartbeat():
 @app.route('/nexulien/users', methods=['GET'])
 @cross_origin()
 def nexulien_users():
-    get_timestamps = request.args.get('timestamps') == 'true'
     try:
         with get_db_connection() as conn:
             c = conn.cursor()
             c.execute('SELECT * FROM users')
             users = c.fetchall()
-            if get_timestamps:
-                return jsonify({'users': [{'user': user['user'], 'name': user['name'], 'last_seen': user['timestamp']} for user in users]}), 200
-            else:
-                return jsonify({'users': [{'user': user['user'], 'name': user['name']} for user in users]}), 200
+            return jsonify({'users': [{'user': user['user'], 'name': user['name']} for user in users]}), 200
     except sqlite3.Error as e:
         pass
 
