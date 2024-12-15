@@ -1,0 +1,8 @@
+body.no-title > #nav > h1,
+body.no-title > #nav > hr {
+    display: none;
+}
+body.no-title > #nav {
+    height: auto;
+    padding-top: 0px;
+}

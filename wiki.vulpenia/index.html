@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W4SP</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/markdown.css">
+    <link rel="stylesheet" href="src/page_types.css">
+    <script src="src/page_link.js"></script>
+</head>
+<body>
+    <!-- <img src="/important/reuben.gif"> fun fact: this is actually on the dph wiki (https://datapack.wiki/important/reuben.gif)
+    https://rotatingsandwiches.wordpress.com/ -->
+    <div id="side" class="panel">
+        <span class="logo">
+            <img src="img/wasp.png" draggable="false">
+            <img src="img/wasp_text.png" draggable="false" alt="W4SP">
+        </span>
+        <hr>
+        <p>
+            <b>Main menu</b>
+            <ul>
+                <li><page-link href="/wiki/Main_Page">Main page</page-link></li>
+                <li><a>Contents</a></li>
+                <li><a>Contact us</a></li>
+            </ul>
+        </p><!--
+        <hr>
+        <p>
+            <b>Contribute</b>
+            <ul>
+                <li><a>Help</a></li>
+                <li><a>Recent changes</a></li>
+                <li><a>Upload file</a></li>
+            </ul>
+        </p> -->
+        <hr>
+        <p>
+        get therapy 👈👈👈👈
+        <ul>
+            <li><a href="https://www.therapy-links.co.uk/">Therapy Links UK CIC</a>
+            <li><a href="https://www.betterhelp.com/">Better Help (actually shit therapy dont at me)</a></li>
+            <li><a href="https://www.therapylinkcare.com/">Therapy Link | Mental Health Help</a></li>
+            <li>actually nevermind, nexulien will just give you more mental health issues ^-^</li>
+        </ul>
+        <hr>
+        <p><a href="https://github.com/JaegerwaldDev/W4SP">W4SP GitHub</a> • <a href="https://github.com/JaegerwaldDev/W4SP">Documentation</a></p>
+        </p>
+        <hr>
+        <p>Don't like this theme? Don't worry - you can make W4SP your own! Just specify a custom theme stylesheet in the config and you can change stuff to your heart's content!</p>
+        </div>
+    <div id="head" class="panel">
+        <span id="search">
+            <input placeholder="Search..."></input>
+            <button>Search</button>
+        </span>
+    </div>
+    <div id="nav" class="panel">
+        <h1 id="title"></h1>
+        <hr>
+        <button class="tab" id="tabHistory">Commit History</button>
+        <button class="tab" id="tabSource">Source</button>
+        <button class="tab active" id="tabRead">Read</button>
+    </div>
+    <div id="page" class="panel">
+        <div class="page active" id="pageRead"></div>
+        <div class="page" id="pageSource">
+            <pre><code id="markdownRaw"></code></pre>
+        </div>
+        <div class="page" id="pageHistory"></div>
+        <div id="footer"><span class="version">v1.0.0-alpha.1</span><span class="right">Created with <a href="https://github.com/JaegerwaldDev/W4SP"><img src="img/wasp_compact.png" style="vertical-align: middle;" height="16px" alt="W4SP"></a></span></div>
+    </div>
+    <script src="src/marked.min.js"></script>
+    <script src="src/api.js"></script>
+    <script src="src/github_api.js"></script>
+    <script src="src/index.js"></script>
+</body>
+</html>

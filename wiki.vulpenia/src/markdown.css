@@ -1,0 +1,26 @@
+code {
+    background-color: var(--clr-dark-1);
+}
+pre:has(code) {
+    background-color: var(--clr-dark-1);
+    padding: 8px;
+}
+
+
+table th {
+    border: 1px var(--clr-dark-4) solid;
+    padding: 8px;
+    background-color: var(--clr-dark-3);
+}
+table td {
+    border: 1px var(--clr-dark-3) solid;
+    padding: 8px;
+}
+table {
+    border-collapse: collapse;
+    margin: 16px;
+}
+
+pre {
+    white-space: normal;
+}
