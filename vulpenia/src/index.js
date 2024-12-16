@@ -64,7 +64,7 @@ historyTab.addEventListener("click", async function () {
         element.class = "commit";
         element.innerHTML = `${new Date(commit.date).toLocaleString(undefined, {
             timeZoneName: "short",
-        })} | <a href="https://github.com/${owner}/${repo}/commit/${
+        })} | <a href="https://github.com/${config.repo}/commit/${
             commit.sha
         }">${commit.message}</a> - ${commit.author}`;
 
