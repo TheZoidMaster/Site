@@ -33,9 +33,13 @@ function iterrHtml(htmlCollection, iterrateFunc) {
 
 function toObject(string) {
     result = {};
-    string.split("\r\n").forEach(line => {
-       result[line.split(": ")[0]] = line.split(": ")[1] 
+    string = string.replace(/\r/g, "");
+    string.split("\n").forEach(line => {
+        line = line.split(": ");
+
+        result[line[0]] = line[1]
     });
+    console.log(result);
     return result;
 };
 
