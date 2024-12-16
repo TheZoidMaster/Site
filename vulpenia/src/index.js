@@ -1,4 +1,7 @@
-console.log("%cthere is no wasp emoji 😢 🐝", "color: #fd0; font-size: 32pt; font-weight: 800; font-family: monospace;")
+console.log(
+    "%cthere is no wasp emoji 😢 🐝",
+    "color: #fd0; font-size: 32pt; font-weight: 800; font-family: monospace;"
+);
 
 let tabs = document.getElementsByClassName("tab");
 let page = document.getElementById("page");
@@ -15,16 +18,18 @@ let historyPage = document.getElementById("pageHistory");
 
 let markdownRaw = document.getElementById("markdownRaw");
 
+let config = getConfig();
+
 function hidePages() {
     iterrHtml(pages, function (element) {
         element.className = "page";
     });
-};
+}
 
-let currentPage = "wiki/Main_Page.md"
+let currentPage = "wiki/Main_Page.md";
 
 iterrHtml(tabs, function (element) {
-    element.addEventListener("click", function() {
+    element.addEventListener("click", function () {
         iterrHtml(tabs, function (element) {
             element.className = "tab";
         });
@@ -43,28 +48,40 @@ sourceTab.addEventListener("click", function () {
 historyTab.addEventListener("click", async function () {
     hidePages();
     historyPage.className = "page active";
-    
+
     let commits = await getCommits(currentPage);
 
-    historyPage.innerHTML = "<p>If you're not seeing commits, there's a high chance you're being rate limited. Try again later. (fix tbd)</p>";
+    historyPage.innerHTML =
+        "<p>If you're not seeing commits, there's a high chance you're being rate limited. Try again later. (fix tbd)</p>";
 
-    commits.forEach(commit => {
+    if (commits.length == 0) {
+        historyPage.innerHTML =
+            "<p>GitHub returned no commits, probably because this page hasn't been pushed to the repository yet. If it has been pushed, please create an issue to report this! Also make sure that it's been more than 15 since the last time you checked this tab.</p>";
+    }
+
+    commits.forEach((commit) => {
         let element = document.createElement("p");
         element.class = "commit";
-        element.innerHTML = `${new Date(commit.date).toLocaleString(undefined, {timeZoneName: "short"})} | <a href="https://github.com/${owner}/${repo}/commit/${commit.sha}">${commit.message}</a> - ${commit.author}`;
+        element.innerHTML = `${new Date(commit.date).toLocaleString(undefined, {
+            timeZoneName: "short",
+        })} | <a href="https://github.com/${owner}/${repo}/commit/${
+            commit.sha
+        }">${commit.message}</a> - ${commit.author}`;
 
         historyPage.appendChild(element);
     });
 });
 
 async function setPage(file) {
-    let markdown = await getMarkdown(file);
+    let markdown = await getMarkdown(
+        `https://raw.githubusercontent.com/${config.repo}/refs/heads/${config.branch}${file}`
+    );
     readPage.innerHTML = markdown.html;
     markdownRaw.innerText = markdown.raw;
 
     currentPage = file;
 
-    let metadata = toObject(markdown.meta)
+    let metadata = markdown.meta;
 
     document.title = metadata.title;
     title.innerText = metadata.title;
@@ -76,23 +93,23 @@ async function setPage(file) {
         default:
             document.body.removeAttribute("class");
             break;
-    };
-};
+    }
+}
 
 function loadPageFromHash() {
     fallbackHash();
-    currentPage = window.location.hash.replace("#","") + ".md";
+    currentPage = window.location.hash.replace("#", "") + ".md";
     setPage(currentPage);
-};
+}
 
 function fallbackHash() {
     switch (window.location.hash) {
         case "":
         case "#":
         case "#/":
-            window.location.hash = "/wiki/Main_Page"
-    };
-};
+            window.location.hash = "/wiki/Main_Page";
+    }
+}
 
 window.onhashchange = loadPageFromHash;
 window.onload = loadPageFromHash;
