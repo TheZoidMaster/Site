@@ -25,7 +25,7 @@ function getConfig() {
             config = {
                 repo: "JaegerwaldDev/W4SP",
                 branch: "main",
-                theme: "src/std-theme/wasp-yellow.css",
+                theme: "src/themes/wasp-yellow.css",
                 logo: "img/wasp.png",
                 logo_text: "img/wasp_text.png",
             };
@@ -36,7 +36,7 @@ function getConfig() {
         config = {
             repo: "JaegerwaldDev/W4SP",
             branch: "main",
-            theme: "src/std-theme/wasp-yellow.css",
+            theme: "src/themes/wasp-yellow.css",
             logo: "img/wasp.png",
             logo_text: "img/wasp_text.png",
         };
