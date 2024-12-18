@@ -20,14 +20,13 @@ let markdownRaw = document.getElementById("markdownRaw");
 
 let config = getConfig();
 
+let currentPage = "wiki/Main_Page.md";
+
 function hidePages() {
     iterrHtml(pages, function (element) {
         element.className = "page";
     });
 }
-
-let currentPage = "wiki/Main_Page.md";
-
 iterrHtml(tabs, function (element) {
     element.addEventListener("click", function () {
         iterrHtml(tabs, function (element) {
@@ -36,6 +35,15 @@ iterrHtml(tabs, function (element) {
         element.className = "tab active";
     });
 });
+
+// #region Theme Loading
+let theme = document.getElementById("theme");
+
+function setTheme(url) {
+    theme.href = url;
+}
+
+// #region Tab Logic
 
 readTab.addEventListener("click", function () {
     hidePages();
@@ -71,6 +79,8 @@ historyTab.addEventListener("click", async function () {
         historyPage.appendChild(element);
     });
 });
+
+// #region Page Navigation
 
 async function setPage(file) {
     let markdown = await getMarkdown(
@@ -113,3 +123,5 @@ function fallbackHash() {
 
 window.onhashchange = loadPageFromHash;
 window.onload = loadPageFromHash;
+
+setTheme(getConfig().theme)
