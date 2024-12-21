@@ -60,10 +60,10 @@ class TextScramble {
 }
 
 const phrases = [
-    "a minecraft modder",
+    "a Minecraft modder",
     "a software dev",
     "an expert procrastinator",
-    "a discord user",
+    "a Discord user",
     "a web developer??",
     "a gamer",
     "a professional idiot",
