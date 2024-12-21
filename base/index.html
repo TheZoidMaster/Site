@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About</title>
+        <title>Zoid</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="index.js"></script>
+        <script src="particles.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
     </head>
     <body>
-        <h1>About</h1>
-        <p>This page is under construction.</p>
+        <div id="particles-js"></div>
+        <div id="container">
+            <div id="bg-blur"></div>
+            <div id="content">
+                <img src="pfp.jpg" id="pfp" />
+                <h1 id="title">hey, i'm zoid.</h1>
+                <h3>i'm <span id="status"></span> from the us.</h3>
+                <p id="desc">
+                    i mainly work with java, python, and lua. i'm also a linux
+                    enthusiast, despite primarily using windows. i'm currently
+                    working on a few projects, including a
+                    <a href="https://nexulien.github.io/">discord client mod</a
+                    >, and a few
+                    <a href="https://modrinth.com/organization/astrinox"
+                        >minecraft mods</a
+                    >
+                    (most are still heavily work-in-progress and currently
+                    privated) with
+                    <a href="https://github.com/astrinox">my modding team</a>.
+                </p>
+                <div id="links">
+                    <a
+                        href="https://github.com/thezoidmaster"
+                        target="_blank"
+                        class="social"
+                    >
+                        <img src="github.svg" alt="github" class="social" />
+                    </a>
+                    <a
+                        href="https://modrinth.com/user/zoid"
+                        target="_blank"
+                        class="social"
+                    >
+                        <img src="modrinth.svg" alt="modrinth" class="social" />
+                    </a>
+                    <a
+                        href="https://reddit.com/u/masterofthezoid"
+                        target="_blank"
+                        class="social"
+                    >
+                        <img src="reddit.svg" alt="reddit" class="social" />
+                    </a>
+                    <a
+                        href="https://youtube.com/@thezoidmaster"
+                        target="_blank"
+                        class="social"
+                    >
+                        <img src="youtube.svg" alt="youtube" class="social" />
+                    </a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

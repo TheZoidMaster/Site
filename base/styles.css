@@ -1,0 +1,115 @@
+body {
+    background-color: black;
+    background-image: url("bg.svg");
+    background-repeat: repeat;
+    background-size: 25px 25px;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Rubik", sans-serif;
+    color: white;
+    font-size: 1.2em;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#bg-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+#container {
+    position: absolute;
+    width: fit-content;
+    max-width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #fff1;
+    z-index: 2;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 5px solid #fff1;
+    padding: 20px;
+    gap: 20px; /* Add consistent spacing between child elements */
+}
+
+#pfp {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px auto; /* Consistent margin */
+}
+
+a {
+    color: white;
+}
+
+a.social {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px; /* Consistent margin */
+}
+
+img.social {
+    fill: white;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px; /* Consistent margin */
+}
+
+@media (max-width: 1200px) {
+    h3 {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #pfp {
+        width: 80px;
+    }
+
+    img.social {
+        height: 30px;
+        width: 30px;
+    }
+
+    #container {
+        width: 80% !important;
+        max-width: 80% !important;
+        height: fit-content !important;
+        padding: 20px;
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+
+    #title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    #desc {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    a.social {
+        padding: 5px;
+        margin: 0 3px; /* Adjust margin for smaller screens */
+    }
+}
