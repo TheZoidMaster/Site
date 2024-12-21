@@ -74,7 +74,7 @@ img.social {
     margin: 0 5px; /* Consistent margin */
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1220px) {
     h3 {
         display: none;
     }
