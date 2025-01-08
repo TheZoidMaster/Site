@@ -23,13 +23,13 @@ body {
 div {
     margin: 0px;
 }
-#img>img {
+#img > img {
     width: 100%;
     vertical-align: top;
     user-select: none;
 }
 #md {
-    background-color: #7F3126;
+    background-color: #7f3126;
     padding: 16px;
     padding-left: 32px;
     padding-right: 32px;
@@ -46,7 +46,12 @@ div#multi {
 }
 
 /* all markdown shenanigans */
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     padding: 0px;
     margin: 0px;
 }
