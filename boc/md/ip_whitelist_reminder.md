@@ -1,1 +1,0 @@
-**Note:** We have a whitelist. In order to get whitelisted, you need to first join [our Discord](https://discord.gg/basement-of-chaos/s7WVHBPYqe) and send your IGN in the `#whitelist` channel.
